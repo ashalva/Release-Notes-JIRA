@@ -96,15 +96,4 @@ class Analyser {
             .replacingOccurrences(of: " *", with: "")
         }
     }
-    
-    private func setLinks(_ tasks: [String]) -> [String] {
-        return tasks.map { (value: String) -> String in
-            if let taskCode = value.components(separatedBy: " ").first {
-                let link = "<a href='\(jiraDomain)/jira/browse/\(taskCode)'>"
-                return value.replacingOccurrences(of: taskCode, with: "\(link)\(taskCode)</a>")
-            } else {
-                return value
-            }
-        }
-    }
 }
